@@ -12,7 +12,11 @@ pool:
 steps:
 - script: echo Hello Azure
   displayName: 'Run a one-line script'
-
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'Sonarqubedemo'
+    scannerMode: 'MSBuild'
+    projectKey: 'Sonarqube'
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
@@ -21,3 +25,4 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-Results.xml'
+    
